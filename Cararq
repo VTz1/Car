@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jogo de Carro</title>
+    <style>
+        #game-container {
+            width: 600px;
+            height: 400px;
+            background-color: #f2f2f2;
+            position: relative;
+        }
+
+        #car {
+            width: 50px;
+            height: 80px;
+            background-color: #00f;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <div id="car"></div>
+    </div>
+
+    <script>
+        const car = document.getElementById("car");
+        let carPosition = 0;
+
+        document.addEventListener("keydown", moveCar);
+
+        function moveCar(event) {
+            if (event.key === "ArrowLeft") {
+                carPosition -= 10;
+            } else if (event.key === "ArrowRight") {
+                carPosition += 10;
+            }
+
+            if (carPosition < 0) {
+                carPosition = 0;
+            } else if (carPosition > 550) {
+                carPosition = 550;
+            }
+
+            car.style.left = carPosition + "px";
+        }
+    </script>
+</body>
+</html>
